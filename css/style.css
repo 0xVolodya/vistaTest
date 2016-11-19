@@ -1,0 +1,90 @@
+ul {
+  list-style-type: none;
+  padding-left: 0;
+  margin: 0; }
+
+a {
+  text-decoration: none; }
+  a:visited {
+    color: black; }
+
+.fio__header, .fio__value, .age__header, .age__value, .med__header, .med__value {
+  display: inline-block; }
+
+.fio__header, .age__header, .med__header {
+  margin-bottom: 10px; }
+
+.fio__value, .age__value, .med__value {
+  width: 300px;
+  border-bottom: solid 1px lightgray; }
+
+.container {
+  margin: 20px; }
+  .container .left-table {
+    height: 100vh;
+    width: 49%;
+    float: left;
+    border: solid 1px lightgray;
+    box-shadow: 3px 3px 3px lightgrey; }
+    .container .left-table .header {
+      color: white;
+      padding: 10px;
+      background-color: deepskyblue;
+      margin-bottom: 10px; }
+  .container .right-table {
+    width: 49%;
+    float: right; }
+
+.tabs {
+  border: solid 1px lightgray;
+  box-shadow: 3px 3px 3px lightgrey;
+  min-height: 100vh; }
+  .tabs__item {
+    display: none;
+    color: black; }
+    .tabs__item.active {
+      display: block; }
+  .tabs__control {
+    margin-bottom: 0;
+    background-color: whitesmoke;
+    border-bottom: solid 1px lightgray; }
+    .tabs__control .tabs__control--item {
+      display: inline-block;
+      padding: 10px; }
+    .tabs__control .active-link {
+      border-bottom: solid 3px blue; }
+      .tabs__control .active-link .tabs__control--link {
+        color: lightskyblue; }
+  .tabs__list {
+    margin-top: 0; }
+
+.table {
+  width: 100%;
+  border-collapse: collapse; }
+  .table td {
+    width: 33%;
+    padding: 5px;
+    border-bottom: solid 1px lightgray;
+    margin: 0; }
+  .table .active-tr {
+    border-left: solid 2px blue; }
+
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0; }
+
+.clearfix {
+  display: inline-block; }
+
+/* start commented backslash hack \*/
+* html .clearfix {
+  height: 1%; }
+
+.clearfix {
+  display: block; }
+
+/* close commented backslash hack */

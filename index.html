@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="container clearfix">
+    <div class="left-table">
+        <div class="header">
+            <h1>Информация о клиенте</h1>
+        </div>
+        <ul class="info">
+            <li class="fio">
+                <div class="fio__header">ФИО</div>
+                <div class="fio__value"></div>
+            </li>
+            <li class="age">
+                <div class="age__header">Возраст</div>
+                <div class="age__value"></div>
+            </li>
+            <li class="med">
+                <div class="med__header">Диагноз</div>
+                <div class="med__value"></div>
+            </li>
+        </ul>
+
+    </div>
+    <div class="right-table">
+        <div class="tabs">
+            <ul class="tabs__control">
+                <li class="tabs__control--item active-link">
+                    <a href="#" class="tabs__control--link">ПРИСУТСТВУЮТ (<span class="present-count">0</span>)</a></li>
+                <li class="tabs__control--item">
+                    <a href="#" class="tabs__control--link">ВЫБЫВШИЕ(<span class="eliminated-count">0</span>)</a></li>
+            </ul>
+            <ul class="tabs__list">
+                <li class="tabs__item active presented">tabs__item 1</li>
+                <li class="tabs__item eliminated">tabs__item 2</li>
+            </ul>
+        </div>
+    </div>
+
+</div>
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.js"></script>-->
+<script src="jquery-2.2.4.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
