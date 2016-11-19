@@ -17,7 +17,6 @@ $(document).ready(function () {
             .addClass("active-link")
             .siblings()
             .removeClass("active-link");
-
     });
 
 
@@ -27,7 +26,6 @@ $(document).ready(function () {
             $this=$(this);
 
             var tabs__item=$this.closest(".tabs__item");
-            var index = $(".tabs__item").index(tabs__item);
             var currentClass=tabs__item.hasClass("presented") ? 0 : 1;
             var currentTable = currentClass===0 ?  $(".presented")
                 : $(".eliminated");
@@ -35,7 +33,7 @@ $(document).ready(function () {
                 trs = currentTable.find("tr");
             var jsonIndexTr=trs.index($this);
             //remove all active-tr classes
-            trs.eq(trs.index($this))
+            trs .eq(trs.index($this))
                 .addClass("active-tr")
                 .siblings()
                 .removeClass("active-tr");
@@ -69,9 +67,27 @@ $(document).ready(function () {
             dataType: 'json',
             success: function (data) {
                 quitingList=data;
+                var tbl_body = "<table class='table'>";
+                tbl_body += "<tr class='table-header'>" + "<td>№ИБ</td>" + "<td>ФИО</td>" + "<td>Причина</td></tr>";
+                $.each(data, function () {
+                    var data = this;
+                    var tbl_row = "<tr>";
+                    tbl_row += "<td>" + data["historyNumber"] + "</td>";
 
+                    tbl_row += "<td>" + data["firstName"] +" "+ data["lastName"]
+                        + " "+data["patrName"] + "</td>";
+
+                    tbl_row += "<td>" + data["cause"] + "</td>";
+
+                    tbl_row += "</tr>";
+                    tbl_body += tbl_row;
+                });
+                tbl_body += "</table>";
+
+                console.log(data);
+                console.log("sdfkjhdks");
                 $(".eliminated-count").html(data.length);
-                $(".eliminated").html(getTableFromData(data));
+                $(".eliminated").html(tbl_body);
             }
         });
     }
@@ -84,32 +100,26 @@ $(document).ready(function () {
             dataType: 'json',
             success: function (data) {
                 presentList= data;
+                var tbl_body = "<table class='table'>";
+                tbl_body += "<tr class='table-header'>" + "<td>№ИБ</td>" + "<td>ФИО</td>" + "<td>Палата</td></tr>";
+                $.each(data, function () {
+                    var data = this;
+                    var tbl_row = "<tr>";
+                    tbl_row += "<td>" + data["historyNumber"] + "</td>";
 
+                    tbl_row += "<td>" + data["firstName"] +" "+ data["lastName"]
+                        +" "+ data["patrName"] + "</td>";
+
+                    tbl_row += "<td>" + data["bedNumber"] + "</td>";
+
+                    tbl_row += "</tr>";
+                    tbl_body += tbl_row;
+                });
+                tbl_body += "</table>";
                 $(".present-count").html(data.length);
-                $(".presented").html(getTableFromData(data));
+                $(".presented").html(tbl_body);
             }
         });
 
-    }
-
-    function getTableFromData(data) {
-        var tbl_body = "<table class='table'>";
-        tbl_body += "<tr class='table-header'>" + "<td>№ИБ</td>" + "<td>ФИО</td>" + "<td>Палата</td></tr>";
-        var odd_even = false;
-        $.each(data, function () {
-            var data = this;
-            var tbl_row = "<tr>";
-            tbl_row += "<td>" + data["historyNumber"] + "</td>";
-
-            tbl_row += "<td>" + data["firstName"] + " " + data["lastName"]
-                + " " + data["patrName"] + "</td>";
-
-            tbl_row += "<td>" + data["bedNumber"] + "</td>";
-
-            tbl_row += "</tr>";
-            tbl_body += tbl_row;
-        });
-        tbl_body += "</table>";
-        return tbl_body;
     }
 });
